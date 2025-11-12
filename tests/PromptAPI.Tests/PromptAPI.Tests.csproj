@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\PromptAPI.Application\PromptAPI.Application.csproj" />
+    <ProjectReference Include="..\..\src\PromptAPI.Domain\PromptAPI.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,7 @@
+using FluentValidation;
+using MediatR;
+using PromptAPI.API.Middleware;
+using PromptAPI.Application.Behaviors;
 using PromptAPI.Domain.Interfaces;
 using PromptAPI.Infrastructure.Repositories;
 
@@ -10,6 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddMediatR(cfg => {
     cfg.RegisterServicesFromAssembly(typeof(PromptAPI.Application.DTOs.PromptDto).Assembly);
 });
+
+// Configuração do FluentValidation
+builder.Services.AddValidatorsFromAssembly(typeof(PromptAPI.Application.DTOs.PromptDto).Assembly);
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 // Injeção de Dependência - Repositórios
 builder.Services.AddScoped<IPromptRepository, PromptRepository>();
@@ -38,6 +46,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// Middleware de tratamento de exceções
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
