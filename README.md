@@ -1,17 +1,3 @@
-# PromptAPI
-
-API RESTful para gerenciamento de prompts desenvolvida com C#, .NET 8, seguindo os princípios de **Clean Architecture**, **CQRS** e **TDD**.
-
-## 📋 Índice
-
-- [Arquitetura](#arquitetura)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Branches e Etapas de Desenvolvimento](#branches-e-etapas-de-desenvolvimento)
-- [Configuração do Ambiente](#configuração-do-ambiente)
-- [Banco de Dados](#banco-de-dados)
-- [Como Executar](#como-executar)
-
 ## 🏗️ Arquitetura
 
 O projeto segue os princípios da **Clean Architecture**, dividido em camadas com responsabilidades bem definidas:
